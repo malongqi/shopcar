@@ -1,0 +1,14 @@
+.header-container{
+	display: flex;
+	padding: 0 10px;
+	background: #fff;
+	height: 40px;
+	line-height: 40px;
+	flex-direction: row;
+	div{
+		flex:1;
+	}
+	.header-title{
+		text-align: center;
+	}
+}
