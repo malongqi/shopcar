@@ -143,6 +143,7 @@
 .inputnum{
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	.btn{
 		position: relative;
 		width: .6rem;
@@ -152,8 +153,9 @@
 		input{
 			text-align: center;
 			width: 100%;
+			box-sizing: border-box;
 		}
-		width: .5rem;
+		width: .4rem;
 	}
 	.num-minus{
 		&:before{

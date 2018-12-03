@@ -15,6 +15,7 @@ class Car extends Component {
         {
           listId: 11111,
           shopInfor: {
+            checkAll: false,
             name: '云上生活云上生活云上生活云上生活云上生活云上生活云上生活云上生活云上生活',
             type: 'B',
             shopUrl: 'http://www.baidu.com'
@@ -22,6 +23,7 @@ class Car extends Component {
           productList: [
             {
               id: 10001,
+              checked: false,
               title: '云上生活 长袖半高领休闲套头毛衣2018新款保暖显瘦打底上衣A9592',
               img: 'https://gw.alicdn.com/bao/uploaded/i1/39501878/O1CN011PkAHMzdeJ1zqd0_!!39501878.jpg_200x200q50s150.jpg_.webp',
               price: 190,
@@ -32,6 +34,7 @@ class Car extends Component {
             },
             {
               id: 10002,
+              checked: false,
               title: '云上生活 长袖半高领休闲套头毛衣2018新款保暖显瘦打底上衣A9592',
               img: 'https://gw.alicdn.com/bao/uploaded/i1/39501878/O1CN011PkAHMzdeJ1zqd0_!!39501878.jpg_200x200q50s150.jpg_.webp',
               price: 190,
@@ -45,6 +48,7 @@ class Car extends Component {
         {
           listId: 11112,
           shopInfor: {
+            checkAll: false,
             name: '云上生',
             type: 'C',
             shopUrl: 'http://www.baidu.com'
@@ -52,6 +56,7 @@ class Car extends Component {
           productList: [
             {
               id: 10003,
+              checked: false,
               title: '云上生活 长袖半高领休闲套头毛衣2018新款保暖显瘦打底上衣A9592',
               img: 'https://gw.alicdn.com/bao/uploaded/i1/39501878/O1CN011PkAHMzdeJ1zqd0_!!39501878.jpg_200x200q50s150.jpg_.webp',
               price: 190,
@@ -62,6 +67,7 @@ class Car extends Component {
             },
             {
               id: 10004,
+              checked: false,
               title: '云上生活 长袖半高领休闲套头毛衣2018新款保暖显瘦打底上衣A9592',
               img: 'https://gw.alicdn.com/bao/uploaded/i1/39501878/O1CN011PkAHMzdeJ1zqd0_!!39501878.jpg_200x200q50s150.jpg_.webp',
               price: 190,
@@ -72,6 +78,7 @@ class Car extends Component {
             },
             {
               id: 10006,
+              checked: false,
               title: '云上生活 长袖半高领休闲套头毛衣2018新款保暖显瘦打底上衣A9592',
               img: 'https://gw.alicdn.com/bao/uploaded/i1/39501878/O1CN011PkAHMzdeJ1zqd0_!!39501878.jpg_200x200q50s150.jpg_.webp',
               price: 190,
@@ -82,6 +89,7 @@ class Car extends Component {
             },
             {
               id: 10008,
+              checked: false,
               title: '云上生活 长袖半高领休闲套头毛衣2018新款保暖显瘦打底上衣A9592',
               img: 'https://gw.alicdn.com/bao/uploaded/i1/39501878/O1CN011PkAHMzdeJ1zqd0_!!39501878.jpg_200x200q50s150.jpg_.webp',
               price: 190,
@@ -110,10 +118,16 @@ class Car extends Component {
           icon: 'icon-my',
           title: '我的淘宝'
         }
-      ]
+      ],
+      checkAll: false,
     }
   }
-
+  handleChange = (event) => {
+    const target = event.target
+    this.setState({
+      checkAll: target.checked
+    })
+  }
   render() {
     return (
       <div className="container">
@@ -129,8 +143,8 @@ class Car extends Component {
         <Footbar>
           <div className="foot-sum">
             <div className="check-box">
-              <input className="checkbox" type="checkbox" id="radio"/>
-              <label className="radio" htmlFor="radio"></label>
+              <input className="checkbox" type="checkbox" id="checkAll" checked={this.state.checkAll} onChange={this.handleChange.bind(this)}/>
+              <label className="checkbox-label" htmlFor="checkAll"></label>
             </div>
             <div>全选</div>
             <div className="total">
@@ -138,7 +152,7 @@ class Car extends Component {
             </div>
             <div className="btn"><p><span>结算</span>({this.state.totalNumber})</p></div>
           </div>
-          <Tabbar list={this.state.tabbarList}></Tabbar>
+          <Tabbar list={this.state.tabbarList} ></Tabbar>
         </Footbar>
       </div>
     )
